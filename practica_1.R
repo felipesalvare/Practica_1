@@ -2,7 +2,7 @@
 #####################práctica 1#######################
 
 # ej 1 --------------------------------------------------------------------
-
+rm(list=ls())
 .Machine$double.eps#me dice el número positivo mas chico que puede generar la maquina tal que 1+x!=1
 .Machine$double.neg.eps#Me dice el número positivo más chico que puede generar la maquina tal que 1-x!=1
 .Machine$double.xmin#Me dice el número más chico no nulo que puede generar la maquina
@@ -12,7 +12,7 @@
 .Machine$integer.max#Me dice el número entero más grande que puede ser representado
 
 # ej 2 --------------------------------------------------------------------
-
+rm(list=ls())
 a<-as.integer(1) #estoy designando a mi variable "a" el valor 1 como un número entero
 b<-as.integer(2) #estoy designando a mi variable "b" el valor 2 como un número entero
 a/b             #divido a "a"(1) por "b"(2)
@@ -52,7 +52,7 @@ a*b            #multipico ambos valores
                #que: a*b=9 (integer)
 
 # ej 3 --------------------------------------------------------------------
-
+rm(list=ls())
 a<-0.85   #Designo a como el número 0.85
 b<-round(a) #Desingo b como la funcion round(a), que en este caso redondeó para arriba por lo que b=1
 b<-ceiling(a) #Deigno b como la función ceiling(a), que me devuelve el número redondeado para arriba siempre, por lo que b=1
@@ -60,12 +60,12 @@ b<-floor(a)   #Designo b como la función floor(a), que me devuelve el número r
 b<-trunc(a)   #Designo b como la finción trunc(b), que me devuelve el número truncado hacia 0, por lo que b=0
 
 # ej 4 --------------------------------------------------------------------
-
-# a) ------ 
+rm(list=ls())
+# item a) ------ 
 ##Quiero armar un programa que me devuelva la linea "Hola mundo". Para eso voy a usar la funcion "readline"
 readline("Hola Mundo") #Al correr este programa se puede leer la frase "Hola Mundo" en la consola
 
-# b) ------
+# item b) ------
 ##Quiero armar un programa que pida ingresar un número y que luego imprima por pantalla el número ingresado.
 numero<-readline("ingrese un número cualquiera:") #Designo mi valor "numero" como los números que ingrese el usuario.
 print(numero) #Pido que el programa muestre en pantalla el valor "numero"
@@ -73,6 +73,7 @@ print(numero) #Pido que el programa muestre en pantalla el valor "numero"
 # ej 5 --------------------------------------------------------------------
 # item a---------
 #Primero le designo números a todos mis valores
+rm(list=ls())
 a<-1
 b<-2
 c<-3
@@ -87,6 +88,7 @@ g<-1/3
 (3*(a^2)-2*a)/(7*(b^3)+4*(b^2)-2) #El resultado es 0.01428571
 
 #Ahora vuelvo a realizar las operaciones pero con otros valores 
+rm(list=ls())
 a<-1
 b<-2
 c<-3
@@ -100,6 +102,7 @@ g<-4
 (3*(a^2)-2*a)/(7*(b^3)+4*(b^2)-2) #El resultado es 0.01428571
 
 # item b -----------------------
+rm(list=ls())
 a<-1 #designo valores a,b y c como numeros reales
 b<-2
 c<-3
@@ -114,6 +117,104 @@ a + b * a - c #El resltado es 0, la máquina sumo a mas el resultado de b*c y lu
 
 
 # ej 6 --------------------------------------------------------------------
+# Programa para calcular la inversa de un número
+rm(list=ls())
+a <- readline(" Ingrese un numero ")
+x<- as.numeric(a)
+inversa_x <- (1/x)
+inversa_x
 
+# item a)-----
+#voy a ejecutar el programa para los siguientes valores y escribir el resultado
+## 1.00---> resultado: 1.00
+## 3.00---> resultado: 0.333333333
+## -20.00---> resultado: -0.05
+## 1000.0---> resultado: 0.001
+## 1.0e-400---> resultado: inf
+# el programa funciona correctamente
+
+# item b)-----
+#voy a ejecutar el programa para los siguientes valores y escribir el resultado
+## 0.0---> resultado: inf (El limite de una numero divido por 0 tiende a infinito)
+## "pepe"---> resultado: NA (Como "pepe" es de tipo caracter y ademas son letras, pedirle que sea numerico no va funcionar)
+
+# item c)----
+#Ahora voy a editar el archivo cambiando "x" por "X" en la linea correspondiente al calculo de la inversa
+rm(list=ls())
+a <- readline(" Ingrese un numero ")
+x<- as.numeric(a)
+inversa_x <- (1/X)
+inversa_x
+## resultado: El programa me da error porque R es "case sensitive", es decir que no es lo mismo escribir x minuscula que x mayuscula
+## Si bien yo tengo definido mi valor "x" no es así para un valor "X"
+
+# item d)-----
+#Ahora voy a ejecutar el archivo cambiando la función "readline" por "readlin"
+rm(list=ls())
+a <- readlin(" Ingrese un numero ")
+x<- as.numeric(a)
+inversa_x <- (1/X)
+inversa_x
+## Resultado: El programa da error porque la funcion "readlin" no existe. No es lo mismo escribir "readline" que "readlin"
+
+
+# ej 7 --------------------------------------------------------------------
+
+# item a)-----
+rm(list=ls())
+#Quiero armar un programa tal que se ingrese por pantalla el valor de una latitud y que el programa
+#calcule y muestre por pantalla el valor del parámetro de Coriolis.
+## El parametro de coriolis esta dado por la ecuación f=2*a*sen(b), siendo a la velocidad angular y b la latitud.
+a<-readline("ingrese la latitud para la cual quiere conocer el parametro de Coriolis (solo escriba los números) ") #pido que ingresen la latidud
+x<-as.numeric(a) #pido que la latitud ingresada sea de clase numérica
+y<- x * ( pi / 180 )#cambio la latitud de grados a polares y se lo asigno a un valor y
+z<- sin(y) #asigno el resultado de sin(y) a un valor z
+cor <- "2*(velocidad angular)*" # asigno el resto de la ecuacion a un valor "cor"
+print(paste("El parametro de Coriolis es: ",cor,z,sep="")) #uno el cartel creado con el valor z y digo que lo muestre en la pantalla
+
+# item b)-----   
+rm(list=ls())
+#Quiero armar un programa que me cambie al ingresar una temperatura en fharenheit la cambie a celsius
+f <- readline("Ingrese un valor de temperatura en grados Fahrenheit: ")# Pido que el usuario ingrese una temperatura en Farhenheit
+x <- as.numeric(f) #Asigno los grados de clase numerico a un valor x
+c <- ( x - 32 ) * ( 5 / 9 ) #Le asigno la ecuación para el cambio de grado a un valor c
+print(paste("La temperatura en grados Celsius es: ",c,sep="")) #Pido que la pantalla muestre la oración "La temperatura en grados celsius es: "x"
+
+# item c)-----
+rm(list=ls())
+
+a <- readline("Ingrese un valor de temperatura en unidades Kelvin")
+b <- readline("Ingrese un valor de densidad en gramos sobre centímetros cúbicos")
+t <- as.numeric(a)
+d <- as.numeric(b)
+p <- t * d
+print(paste("La temperatura ingresada es: ",a," grados Kelvin",sep=""))
+print(paste("La densidad ingresada es: ",b," gramos sobre centimetros cúbicos",sep=""))
+print(paste("La presión calculada es: ",p," atmósferas",sep=""))#esto no esta bien, tengo que recordar la ley de gases ideales
+
+# item d)-----
+rm(list=ls())
+
+a <- readline("Ingrese un valor la longitud del hilo en metros (solo ingrese el número): ")
+l <- as.numeric(a)
+g <- 10 #Gravedad en metros sobre segundo al cuadrado
+c <- l / g #Resultado de longitud divido gravedad
+t <- 2 * pi * sqrt(c)
+print(paste0("El periodo de el pendulo en es: ",t," segundos."))
+
+
+# ej 8 --------------------------------------------------------------------
+
+# item a) -----
+rm(list=ls())
+#Este script pide que se ingrese el año, el mes y el dia por separado para luego devolverlo como YYYY.MM.DD
+y <- readline("Ingresar año (YYYY): ")
+m <- readline("Ingresar mes (MM): ")
+d <- readline("Ingersar día (DD): ")
+fecha <- paste(y,m,d,sep=".")
+print(fecha)
+
+# item b) -----
+rm(list=ls())
 
 
