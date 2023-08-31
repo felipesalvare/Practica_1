@@ -216,5 +216,15 @@ print(fecha)
 
 # item b) -----
 rm(list=ls())
+a <- readline("Ingrese la fecha en el formato YYYY-MM-DD: ")
+b <- substr(a,1,4)
+c <- substr(a,6,7)
+d <- substr(a,9,10)
+print(paste0("La fecha ingresada es: ",d," del ",c," del ",b))
 
-
+# item c) -----
+rm(list=ls())
+a <- readline("Ingrese su nombre: ")
+d <- length(a)
+b <- substr(a,1,length(a))
+c <- substr(a,length(a) - 1,length(a))
