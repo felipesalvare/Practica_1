@@ -229,3 +229,12 @@ b <- nchar(a)
 c <- substr(a,1,1)
 d <- substr(a,b,b)
 print(paste0(c,d))
+
+# ej 9 --------------------------------------------------------------------
+
+rm(list=ls())
+nombre <- readline("Ingrese su nombre: ")
+años <- readline("Ingrese su edad: ")
+a <- as.numeric(años)
+b <- a + 7
+print(paste0(nombre," va a tener ",b," años en 2030."))
